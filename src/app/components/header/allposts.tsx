@@ -3,8 +3,8 @@ import { getAllPost } from "@/firebase/posts/read-server"
 import { getAuther } from "@/firebase/author/read-server"
 import Image from 'next/image'
 import Link from 'next/link'
-import { buttonVariants, Empty, EmptyDescription, EmptyImage, EmptyTitle } from 'keep-react'
-import { allCategory, ReadCategory } from "@/firebase/category/read-server"
+import { buttonVariants, Empty, EmptyImage, EmptyTitle } from 'keep-react'
+import {  ReadCategory } from "@/firebase/category/read-server"
 import Loading from "./loading"
 
 
@@ -29,7 +29,7 @@ export default async function AllPosts(){
  {
    data.length >  0  ?  data.map((item ,i)=>(
             
-        <PostCards item={item} loading={isLoading} key={item.id +i}/>
+        <PostCards  item={item} loading={isLoading} key={item.id +i}/>
 
         
     )) :  
@@ -65,7 +65,7 @@ export default async function AllPosts(){
 }
 
 
-export const  PostCards=({item ,loading}:any)=>{
+export const  PostCards=({item ,loading})=>{
     return  <div key={item.id} className=" max-w-sm object-cover hover:scale-95 transition-all mb-2 mx-2 bg-white border border-gray-200 rounded-lg shadow ">
 <a href="#" className="relative">
    

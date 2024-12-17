@@ -216,7 +216,7 @@ function SelectCategory(){
           <select className="w-full " value={data?.categoryID} onChange={(e)=> handleData("categoryID" ,e.target.value)} >
       <option value="">Select</option>
     {
-   categories &&   categories.map((v :any)=>{
+   categories &&   categories.map((v)=>{
            return <option key={v?.id} value={v.id}>{v.name}</option>
       })
     }
@@ -246,7 +246,7 @@ function SelectAuthor(){
           <select className="w-full " value={data.authorID} onChange={(e)=> handleData("authorID" ,e.target.value)} >
       <option value="">Select</option>
     {
-   authors &&   authors.map((v :any)=>{
+   authors &&   authors.map((v)=>{
            return <option key={v.id} value={v.id}>{v.name}</option>
       })
     }

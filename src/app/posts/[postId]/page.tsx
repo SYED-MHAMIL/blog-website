@@ -2,9 +2,9 @@
 import Comments from "@/app/components/header/comments";
 import { getAuther } from "@/firebase/author/read-server";
 import { ReadCategory } from "@/firebase/category/read-server";
-import { db } from "@/firebase/firebaseAuth";
+
 import { serverIndividualPosts } from "@/firebase/posts/read-server";
-import { doc, getDoc } from "firebase/firestore";
+
 import Image from "next/image";
 
 
@@ -49,27 +49,6 @@ return(
 
 
 // coponenets
-
-
-
-
-
-const AthorCard =async({id,date}:{id:number,date:string})=>{
-    
-    const authorData =await getAuther(id) ;
-    
- return   <div className="flex items-center gap-1 m-1">
-        <Image alt=""  src={authorData?.photoURL} height={60}  width={50} className="rounded-full h-12 object-cover "/>
-
-        <div>
-        <h3 className="p-0 m-0 font-medium">{authorData?.name}</h3>
-     <p  className="p-0 m-0 text-sm text-gray-400">Published :{date}</p>
-        </div>
-   
-    </div>
-
-}
-
 const CategoryCard=async({id} : {id:number})=>{
    const data = await ReadCategory(id);
 

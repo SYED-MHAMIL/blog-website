@@ -1,21 +1,14 @@
 "use client";
 
 import { db } from "@/firebase/firebaseAuth";
-
 import { deleteDoc, doc } from "firebase/firestore";
-import { useState } from "react";
+
 import Image from "next/image";
 
 import { useCategories } from "@/firebase/category/read";
 import Link from "next/link";
 
 export default function CategoryListComponent() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
-
   const { categories, isloading } = useCategories();
 
   console.log(categories);
