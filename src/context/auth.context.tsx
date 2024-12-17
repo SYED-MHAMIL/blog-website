@@ -38,6 +38,7 @@ export default function AuthContextProvider({children}: Readonly<{
                
                 if(user){
                   setUser(user)
+                  route.push('/dashboard')
                 }else{
                           setUser(null)
                         }
@@ -52,6 +53,8 @@ export default function AuthContextProvider({children}: Readonly<{
 
         const handleLogout =async()=>{
             await signOut(auth)
+            route.push("/dashboard")  
+
         }
                    
 
@@ -60,7 +63,8 @@ export default function AuthContextProvider({children}: Readonly<{
 
             try {
                 await signInWithPopup(auth, new GoogleAuthProvider())
-                          route.push("/dashboard")
+                          route.push("/dashboard")  
+                          
             } catch (error) {
                  setError(error as Error)   
             }

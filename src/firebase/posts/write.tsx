@@ -19,8 +19,8 @@ type postsWriteType={
 
 export  const postsWrite= async({data,image}:postsWriteType)=>{
   
-    if(!data?.name){
-        throw new Error  (" name is undefined")
+    if(!data?.title){
+        throw new Error  (" title is undefined")
     }
      if(!data?.slug){
         throw new Error  (" slug is undefined")
@@ -56,8 +56,8 @@ const id=Date.now()
 
 export  const UpdatePosts= async({data,image}:postsWriteType)=>{
   
-    if(!data?.name){
-        throw new Error  (" name is undefined")
+    if(!data?.title){
+        throw new Error  (" title is undefined")
     }
      if(!data?.slug){
         throw new Error  (" slug is undefined")

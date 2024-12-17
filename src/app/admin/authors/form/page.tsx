@@ -147,7 +147,7 @@ export default function Form() {
                 <input
                   id="password"
                   onChange={(e) => {
-                    let imageRef = e.target.files;
+                    const imageRef = e.target.files;
                     if (imageRef?.length) {
                       setImage(imageRef[0]);
                     }

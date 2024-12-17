@@ -21,7 +21,7 @@ const  {data,
 
   setData,
   updateData
-}=  UseFormCatContext()!;
+}=  UseFormCatContext()!
 
 // update works   ===============================================
 
@@ -31,12 +31,12 @@ const categoryGetId=useSearchParams();
 
 useEffect(()=>{
   if(updateId){
-    fetch()
-
+    fetcher()
+33
   }
 },[updateId,updateSlug])
 
-const fetch=async()=>{
+const fetcher=async()=>{
 
   try {
     const docRef=doc(db,`categories/${updateId}`);
@@ -153,7 +153,7 @@ updateId  ?  <button className="bg-green-400 text-white font-bold  px-3 py-1 rou
                   id="password"
                   onChange={(e)=>{
                       
-                     let imageRef = e.target.files;
+                     const imageRef = e.target.files;
                      if(imageRef?.length){
                      setImage(imageRef[0])}
 

@@ -7,7 +7,7 @@ import Link from "next/link";
 
 
 export default  function LoginButton(){
-   const {handleSigninWithGoogle,isLoading,handleLogout,user}= useAuthContext()
+   const {handleLogout,user}= useAuthContext()
 
 
    

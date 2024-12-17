@@ -1,9 +1,8 @@
 "use client"
 import { CirclePlus } from "lucide-react";
 import Link from "next/link";
-import { useEffect } from "react";
+
 import CategoryListComponent from "./component/categoryListView";
-import { useCategories } from "@/firebase/category/read";
 
 
 

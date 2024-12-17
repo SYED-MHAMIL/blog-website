@@ -1,17 +1,15 @@
 "use client";
 
 import { CategoryWrite, UpdateCategory } from "@/firebase/category/write";
-import {  useCategories } from "@/firebase/category/read";
 import { createContext, useContext, useState } from "react";
-import { DocumentData } from "firebase/firestore";
-   
+ 
 
 type FormContextType={
     data :{[key :string]:string} ;
     error : string | null ; 
     image :File | null;
     isLoading : boolean ;
-    isDone : Boolean;
+    isDone : boolean;
     setImage :(image:File)=> void;
     handleData:(key:string,value:string)=> void;
     createHandler : ()=> void;

@@ -2,7 +2,7 @@
 
 import { db } from "@/firebase/firebaseAuth";
 import {  deleteDoc, doc  } from "firebase/firestore";
-import {  useState } from "react";
+
 import Image from 'next/image'
 
 
@@ -40,10 +40,10 @@ import { usePosts } from "@/firebase/posts/read";
                    Sr.
                 </th>
                 <th scope="col" className="px-6 py-3">
-                    icon
+                    Image
                 </th>
                 <th scope="col" className="px-6 py-3">
-                    Name
+                    Title
                 </th>
                 <th scope="col" className="px-6 py-3">
                     Slug
@@ -72,7 +72,7 @@ import { usePosts } from "@/firebase/posts/read";
     />
                </td>
                <td className="px-6 py-4">
-                {item.name}
+                {item.title }
                </td>
 
                    <td className="px-6 py-4">

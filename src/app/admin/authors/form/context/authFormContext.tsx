@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, useState } from "react";
-import { DocumentData } from "firebase/firestore";
+
 import { AuthorsWrite, UpdateAuthors } from "@/firebase/author/write";
    
 
@@ -10,7 +10,7 @@ type FormContextType={
     error : string | null ; 
     image :File | null;
     isLoading : boolean ;
-    isDone : Boolean;
+    isDone : boolean;
     setImage :(image:File)=> void;
     handleData:(key:string,value:string)=> void;
     createHandler : ()=> void;

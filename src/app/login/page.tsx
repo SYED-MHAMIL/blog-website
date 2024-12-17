@@ -45,6 +45,7 @@ const handleLogin=async (e : React.FormEvent)=>{
                       lastName,
                       gender,
                       email: user.email,
+                      uid: user.uid
                     });
                   }
                   // route.push("/dashboard"); beforer

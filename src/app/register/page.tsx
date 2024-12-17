@@ -47,7 +47,7 @@ const RegisterPage = () => {
 
       localStorage.setItem(
         "registrationData",
-        JSON.stringify({ firstName, lastName, gender, email })
+        JSON.stringify({ firstName, lastName, gender, email,uid:user.uid })
       );
 
       setmessage(

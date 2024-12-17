@@ -8,6 +8,7 @@ import Image from 'next/image'
 import { UseFormPostsContext } from "./context/postsFormContext";
 import { useCategories } from "@/firebase/category/read";
 import { useAuthors } from "@/firebase/author/read";
+import { RTEField } from "./components/RTEFfield";
 
 
 
@@ -31,11 +32,11 @@ const searchParams=useSearchParams();
 
 useEffect(()=>{
   if(updatePostsId){
-    fetch();
+    fetcher();
   }
 },[updatePostsId])
 
-const fetch=async()=>{
+const fetcher=async()=>{
   
   try {
     console.log(updatePostsId , " post id");
@@ -151,7 +152,7 @@ updatePostsId  ?  <button className="bg-green-400 text-white font-bold  px-3 py-
                   id="password"
                   onChange={(e)=>{
                       
-                     let imageRef = e.target.files;
+                     const imageRef = e.target.files;
                      if(imageRef?.length){
                      setImage(imageRef[0])}
 
@@ -169,7 +170,7 @@ updatePostsId  ?  <button className="bg-green-400 text-white font-bold  px-3 py-
  
             <div>
               <button
-                type="submit"
+                type="submit" 
                 disabled={ isLoading || isDone }
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
@@ -182,6 +183,11 @@ updatePostsId  ?  <button className="bg-green-400 text-white font-bold  px-3 py-
 
             </div>
           </form>
+
+          <RTEField />
+
+
+
      </div>
 
 
@@ -207,11 +213,11 @@ function SelectCategory(){
       <h1 className="font-medium">category</h1>
         <div   className="block w-full rounded-md border-0 py-1.5  px-2  text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ">
           
-          <select className="w-full " value={data.id} onChange={(e)=> handleData("id" ,e.target.value)} >
+          <select className="w-full " value={data?.categoryID} onChange={(e)=> handleData("categoryID" ,e.target.value)} >
       <option value="">Select</option>
     {
    categories &&   categories.map((v :any)=>{
-           return <option value={v.id}>{v.name}</option>
+           return <option key={v?.id} value={v.id}>{v.name}</option>
       })
     }
           </select>
@@ -237,11 +243,11 @@ function SelectAuthor(){
       <h1 className="font-medium  text-gray-800 mx-0">Authors</h1>
 
         <div   className="block w-full rounded-md border-0 py-1.5  px-2 mt-0  text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ">
-          <select className="w-full " value={data.id} onChange={(e)=> handleData("id" ,e.target.value)} >
+          <select className="w-full " value={data.authorID} onChange={(e)=> handleData("authorID" ,e.target.value)} >
       <option value="">Select</option>
     {
    authors &&   authors.map((v :any)=>{
-           return <option value={v.id}>{v.name}</option>
+           return <option key={v.id} value={v.id}>{v.name}</option>
       })
     }
           </select>

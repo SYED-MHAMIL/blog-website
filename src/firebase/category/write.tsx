@@ -76,10 +76,10 @@ export  const UpdateCategory= async({data,image}:CategoryWriteType)=>{
     
     
     const makeImageName = () => {
-        let imageName = data?.slug.split(".");
-        let lastIndex = imageName!?.length - 1;
-        let imageType = imageName![lastIndex];
-        let newName = `${auth.currentUser?.uid}.${imageType}`;
+        const imageName = data?.slug.split(".");
+        const lastIndex = imageName!?.length - 1;
+        const imageType = imageName![lastIndex];
+        const newName = `${auth.currentUser?.uid}.${imageType}`;
         return newName;
     };
     const imageRef= ref(storage , `categories/${makeImageName()}`)

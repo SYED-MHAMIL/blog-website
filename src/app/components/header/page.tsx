@@ -1,7 +1,7 @@
-import { House, List, UserPen } from "lucide-react";
+
 import Link from "next/link";
 import LoginButton from "./loginButton";
-import AuthContextProvider, { useAuthContext } from "@/context/auth.context";
+import AuthContextProvider from "@/context/auth.context";
 
    
 
@@ -10,20 +10,47 @@ export default function Header(){
       
 
 
-return <nav className="px-7 py-7 border-b flex items-center justify-between bg-white">
-
-    <h1 className="font-mono font-bold text-3xl text-black ">mhamil.io</h1>
-        <ul className="flex gap-6 font-bold text-black">
+return <div className="navbar border-b bg-base-100">
+<div className="navbar-start">
+  <div className="dropdown">
+    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-5 w-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d="M4 6h16M4 12h16M4 18h7" />
+      </svg>
+    </div>
+    <ul
+      tabIndex={0}
+      className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+        <Link href={"/categories"}>
         
-            <li className="flex items-center gap-1"><House />Home</li>
-            <li className="flex items-center gap-1"><List />Blogs</li>
-            <li className="flex items-center gap-1"><UserPen />Contacts Us</li>
-        </ul>
+      <li>Categories</li>
+        </Link>
 
-    <AuthContextProvider>
+        <Link href={"/dashboard"}>
+        
+        <li>Home</li>
+          </Link>
+    </ul>
+  </div>
+</div>
+<div className="navbar-center">
+  <a className="btn btn-ghost text-xl">Blog.io</a>
+</div>
+<div className="navbar-end">
+<AuthContextProvider>
         <LoginButton/>
         </AuthContextProvider>
-</nav>
+</div>
+</div>
 
 
 }

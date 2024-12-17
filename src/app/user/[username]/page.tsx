@@ -40,7 +40,7 @@ export default function UserName({ params: { username } }: UserNameType) {
     }, [])
 
     const fetchUser = () => {
-        let [userData] = dbUsers.filter(({ name }) => name === username);
+        const [userData] = dbUsers.filter(({ name }) => name === username);
         setUser(userData);
     }
 

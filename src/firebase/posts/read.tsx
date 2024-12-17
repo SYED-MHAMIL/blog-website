@@ -18,7 +18,7 @@ export function usePosts() {
 
   type postsType = {
     iconURL: string;
-    name: string;
+    // name: string;
     slug: string;
     uid: string;
     id: string;

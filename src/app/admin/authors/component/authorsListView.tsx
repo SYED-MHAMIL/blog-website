@@ -1,11 +1,12 @@
 "use client";
 
 import { db } from "@/firebase/firebaseAuth";
-import { Unsubscribe } from "firebase/auth";
-import { collection, deleteDoc, doc, onSnapshot } from "firebase/firestore";
+
+
 import Image from "next/image";
 import Link from "next/link";
 import { useAuthors } from "@/firebase/author/read";
+import { deleteDoc, doc } from "firebase/firestore";
 
 export default function AuthorsListComponent() {
  

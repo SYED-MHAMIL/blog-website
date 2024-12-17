@@ -36,8 +36,8 @@ export default function Sidebar(){
       <ul className="w-full flex flex-col gap-7  font-bold text-xl">
     
     {
-      link.map((item)=>{
-         return <Link href={item.link}>
+      link.map((item,i)=>{
+         return <Link key={item.name+i} href={item.link}>
           <li className="flex gap-3 items-center bg-blue-50 px-4 py-2 rounded-full">
           {item.icon}
           <span>{item.name}</span>
