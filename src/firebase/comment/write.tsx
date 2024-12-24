@@ -1,7 +1,5 @@
 
-
-import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage"
-import { auth, db, storage } from "../firebaseAuth"
+import { auth, db, } from "../firebaseAuth"
 import { doc, setDoc, Timestamp } from "firebase/firestore"
 
 
