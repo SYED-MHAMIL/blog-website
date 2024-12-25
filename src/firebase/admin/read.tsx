@@ -8,7 +8,7 @@ import { db } from "../firebaseAuth";
 import { useEffect, useState } from "react";
 
 
-export  function useAdmin({uid}:{uid : string | undefined}) {
+export  function useAdmin({uid}:{uid : string | undefined | null}) {
 
  const [admin ,setAdmin]=useState<DocumentData | null>(null)
 useEffect(()=>{

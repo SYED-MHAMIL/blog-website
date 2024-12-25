@@ -20,7 +20,7 @@ export default async function CategoriesSelection() {
         </div>
       )}
 
-      <div className="flex gap-12 flex-wrap justify-center mt-32 mx-12 items-center">
+      <div className="flex gap-12 flex-wrap justify-center  my-28 mx-12 items-center">
         {categories.length > 0 ? (
           categories.map((v) => {
             return (

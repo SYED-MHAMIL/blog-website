@@ -3,7 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import {  doc, getDoc } from "firebase/firestore";
 import { db } from "@/firebase/firebaseAuth";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import Image from 'next/image'
 import { UseFormPostsContext } from "./context/postsFormContext";
 import { useCategories } from "@/firebase/category/read";
@@ -30,27 +30,53 @@ const  {data,
 const searchParams=useSearchParams();
   const updatePostsId=searchParams.get("id");
 
-useEffect(()=>{
-  if(updatePostsId){
-    fetcher();
-  }
-},[updatePostsId])
+// useEffect(()=>{
+//   if(updatePostsId){
+//     fetcher();
+//   }
+// },[updatePostsId])
 
-const fetcher=async()=>{
+// const fetcher=async()=>{
   
-  try {
-    console.log(updatePostsId , " post id");
-    const docRef=doc(db,`posts/${updatePostsId}`);
-    const  data =await getDoc(docRef)
-    setData(data.data()!)
-  } catch (error) {
-        console.log(error);
+//   try {
+//     console.log(updatePostsId , " post id");
+//     const docRef=doc(db,`posts/${updatePostsId}`);
+//     const  data =await getDoc(docRef)
+//     setData(data.data()!)
+//   } catch (error) {
+//         console.log(error);
         
+//   }
+
+// }
+
+
+
+
+const fetch = useCallback(async () => {
+  try {
+    const docRef = doc(db, `posts/${updatePostsId}`);
+    const data = await getDoc(docRef);
+    console.log(data);
+    setData(data.data()!);
+  } catch (error) {
+    console.log(error);
   }
+}, [updatePostsId, setData]); // Add all variables used inside `fetch` to its dependency array
+
+useEffect(() => {
+  if (updatePostsId) {
+    fetch();
+  }
+}, [updatePostsId, fetch]);
 
 
 
-}
+
+
+
+
+
   
 // update works   ===============================================
  

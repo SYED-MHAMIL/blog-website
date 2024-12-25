@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { UseFormAuthorsContext } from "./context/authFormContext";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/firebase/firebaseAuth";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import Image from 'next/image'
 
 
@@ -28,23 +28,53 @@ export default function Form() {
   const updateId = AuthGetId.get("id");
   // const updateSlug = AuthGetId.get("slug");
 
-  useEffect(() => {
-    if (updateId) {
-      fetch();
-    }
-  }, [updateId]);
-
-  const fetch = async () => {
-    try {
-      const docRef = doc(db, `authors/${updateId}`);
-      const data = await getDoc(docRef);
-      console.log(data);
-      setData(data.data()!);
+  // const fetch = async () => {
+  //   try {
+  //     const docRef = doc(db, `authors/${updateId}`);
+  //     const data = await getDoc(docRef);
+  //     console.log(data);
+  //     setData(data.data()!);
    
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   if (updateId) {
+  //     fetch();
+  //   }
+  // }, [updateId]);
+
+
+
+
+//   
+const fetch = useCallback(async () => {
+  try {
+    const docRef = doc(db, `authors/${updateId}`);
+    const data = await getDoc(docRef);
+    console.log(data);
+    setData(data.data()!);
+  } catch (error) {
+    console.log(error);
+  }
+}, [updateId, setData]); // Add all variables used inside `fetch` to its dependency array
+
+useEffect(() => {
+  if (updateId) {
+    fetch();
+  }
+}, [updateId, fetch]); // Add `fetch` to the dependency array
+
+
+
+
+
+
+
+
+ 
 
   // update works   ===============================================
 

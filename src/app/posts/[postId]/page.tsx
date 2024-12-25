@@ -1,6 +1,5 @@
 
 import Comments from "@/app/components/header/comments";
-import { getAuther } from "@/firebase/author/read-server";
 import { ReadCategory } from "@/firebase/category/read-server";
 
 import { serverIndividualPosts } from "@/firebase/posts/read-server";

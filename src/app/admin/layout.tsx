@@ -24,8 +24,9 @@ function InnerLayout({
   children: React.ReactNode;
 }>) {
   const { user, isLoading: authIsLoading } = useAuthContext();
-  const {admin ,isloading }= user ? useAdmin({ uid: user.uid }) : { admin: null,};
-  
+  // const {admin ,isloading }= user ? useAdmin({ uid: user.uid }) : { admin: null,};
+  const { admin, isloading } = useAdmin({ uid: user?.uid || null });
+
   console.log(admin);
   console.log(user?.uid);
   

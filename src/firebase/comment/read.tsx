@@ -17,7 +17,7 @@ export default function ReadComments(id: number) {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [id]);
 
   const fetchData = () => {
     const docRef = query(

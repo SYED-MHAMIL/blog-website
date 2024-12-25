@@ -23,6 +23,11 @@ type Timestamp = {
   content: string;
 }
 
+type totolPost={
+       postType :postType[];
+       loading : boolean
+}
+
 export default async function AllPosts(){
     
     const data = await getAllPost()!;
@@ -62,9 +67,6 @@ export default async function AllPosts(){
         />
     </EmptyImage>
     <EmptyTitle className="mb-[14px] mt-5">Sorry, No result found!</EmptyTitle>
-    {/* <EmptyDescription className="mb-8">
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.
-      </EmptyDescription> */}
     <Link href="/" className={buttonVariants({ color: 'primary' })}>
       Go to home
     </Link>
@@ -82,7 +84,7 @@ export default async function AllPosts(){
 }
 
 
-export const  PostCards=({item ,loading}:any)=>{
+export const  PostCards=({item ,loading}:totolPost)=>{
              console.log("all post item=>",item , "loading",loading);
              
     return  <div key={item.id} className=" max-w-sm object-cover hover:scale-95 transition-all mb-2 mx-2 bg-white border border-gray-200 rounded-lg shadow ">
@@ -94,7 +96,9 @@ export const  PostCards=({item ,loading}:any)=>{
    </div>
      
 
-   <img className="rounded-t-lg w-full " src={item?.imageURL} alt="" />
+   {/* <img className="rounded-t-lg w-full " src={item?.imageURL} alt="" />   */}
+   <Image className="rounded-t-lg w-full " src={item?.imageURL} alt="" height={200} width={200} />  
+   
 </a>
 <div className="p-5">
    <a href="#">

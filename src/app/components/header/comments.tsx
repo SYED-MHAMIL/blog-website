@@ -8,8 +8,8 @@ import { Bounce, toast } from "react-toastify";
 
 export default function Comments({ id }: { id: number }) {
   const { readsComments, isLoading } = ReadComments(id);
-  console.log("commments", readsComments, isLoading);
-  const idComment = Date.now();
+    console.log("commments", readsComments, isLoading);
+    const idComment = Date.now();
 
   const [comment, setComment] = useState("");
 
