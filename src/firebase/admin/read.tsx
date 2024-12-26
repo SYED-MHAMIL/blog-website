@@ -13,7 +13,7 @@ export  function useAdmin({uid}:{uid : string | undefined | null}) {
  const [admin ,setAdmin]=useState<DocumentData | null>(null)
 useEffect(()=>{
     fetch()
-},[])
+},[uid])   //uid add  sdependency for error
 
  const fetch=async()=>{
 

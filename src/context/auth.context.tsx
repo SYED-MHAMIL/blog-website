@@ -48,7 +48,7 @@ export default function AuthContextProvider({children}: Readonly<{
 
               return()=>unsub ();     
 
-        },[]);
+        },[route]);
 
 
         const handleLogout =async()=>{

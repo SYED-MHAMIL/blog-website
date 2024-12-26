@@ -11,22 +11,12 @@ type Timestamp = {
   nanoseconds: number;
 };
 
- type postType={
-  categoryID: string;
-  slug:string;
-  imageURL: string;
-  uid: string;
-  id :number ;
-  timeStamp: Timestamp;
-  authorID: string;
-  title: string;
-  content: string;
-}
+// npm 
 
-type totolPost={
-       postType :postType[];
-       loading : boolean
-}
+// type totolPost={
+//        postTypeer :postType[];
+//        loading : boolean
+// }
 
 export default async function AllPosts(){
     
@@ -84,7 +74,7 @@ export default async function AllPosts(){
 }
 
 
-export const  PostCards=({item ,loading}:totolPost)=>{
+export const  PostCards=({item ,loading}:any)=>{
              console.log("all post item=>",item , "loading",loading);
              
     return  <div key={item.id} className=" max-w-sm object-cover hover:scale-95 transition-all mb-2 mx-2 bg-white border border-gray-200 rounded-lg shadow ">

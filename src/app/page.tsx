@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 
 
 export default function Home() {
-  const [loading, setloading] = useState(true);
+  // const [loading, setloading] = useState(true);
   const [user, setUser] = useState<User | null>(null);
   const router = useRouter();
 
@@ -54,7 +54,7 @@ export default function Home() {
         setUser(null);
         router.push("/dashboard");
       }
-      setloading(false);
+      // setloading(false);
     });
                
 return ()=> unsubscribe();
