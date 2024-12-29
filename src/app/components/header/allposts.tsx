@@ -6,16 +6,41 @@ import Link from 'next/link'
 import { buttonVariants, Empty, EmptyImage, EmptyTitle } from 'keep-react'
 import {  ReadCategory } from "@/firebase/category/read-server"
 import Loading from "./loading"
-type Timestamp = {
-  seconds: number;
-  nanoseconds: number;
-};
+// type Timestamp = {
+//   seconds: number;
+//   nanoseconds: number;
+// };
+
+// type postType={
+//   // categoryID: string,
+//   // slug: string,
+//   // imageURL: string,
+//   // uid: string,
+//   // timeStamp: Timestamp ,
+//   // title: string,
+//   // authorID: string,
+//   // id: number,
+//   // content: 
+
+//   slug: string;
+//   authorID: string;
+//   title: string;
+//   uid: string;
+//   content: string;
+//   id: number;
+//   timeStamp: {
+//     seconds: number;
+//     nanoseconds: number;
+//   };
+//   categoryID: string;
+//   imageURL: string;
+// }
 
 // npm 
 
 // type totolPost={
-//        postTypeer :postType[];
-//        loading : boolean
+//        item :postType[];
+//       //  loading : boolean
 // }
 
 export default async function AllPosts(){
