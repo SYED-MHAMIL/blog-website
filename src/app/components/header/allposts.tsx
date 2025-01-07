@@ -5,30 +5,7 @@ import Link from "next/link";
 import { buttonVariants, Empty, EmptyImage, EmptyTitle } from "keep-react";
 import { ReadCategory } from "@/firebase/category/read-server";
 import Loading from "./loading";
-// type Timestamp = {
-//   seconds: number;
-//   nanoseconds: number;
-// };
 
-type postType = {
-  slug: string;
-  authorID: string;
-  title: string;
-  uid: string;
-  content: string;
-  id: number;
-  timeStamp: {
-    seconds: number;
-    nanoseconds: number;
-  };
-  categoryID: string;
-  imageURL: string;
-};
-
-type totolPost = {
-  item: postType[];
-  loading: boolean;
-};
 
 export default async function AllPosts() {
   const data = await getAllPost()!;
@@ -54,8 +31,8 @@ export default async function AllPosts() {
       ) : (
         <div className="flex  mt-10 mb-24 justify-center gap-9  flex-wrap">
           {data.length > 0 ? (
-            data.map((item, i) => (
-             
+            data.map((item) => (
+             // post card
                <div
       key={item.id}
       className=" max-w-sm object-cover hover:scale-95 transition-all mb-2 mx-2 bg-white border border-gray-200 rounded-lg shadow "
@@ -142,6 +119,9 @@ export default async function AllPosts() {
 
 
 
+
+
+
 const AthorCard = async ({ id, date }: { id: number; date: string }) => {
   const authorData = await getAuther(id);
 
@@ -180,3 +160,5 @@ const CategoryCard = async ({ id }: { id: number }) => {
     </div>
   );
 };
+
+export {AthorCard,CategoryCard}
