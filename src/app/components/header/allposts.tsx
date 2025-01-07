@@ -11,37 +11,27 @@ import Loading from "./loading"
 //   nanoseconds: number;
 // };
 
-// type postType={
-//   // categoryID: string,
-//   // slug: string,
-//   // imageURL: string,
-//   // uid: string,
-//   // timeStamp: Timestamp ,
-//   // title: string,
-//   // authorID: string,
-//   // id: number,
-//   // content: 
+type postType={
+  
 
-//   slug: string;
-//   authorID: string;
-//   title: string;
-//   uid: string;
-//   content: string;
-//   id: number;
-//   timeStamp: {
-//     seconds: number;
-//     nanoseconds: number;
-//   };
-//   categoryID: string;
-//   imageURL: string;
-// }
+  slug: string;
+  authorID: string;
+  title: string;
+  uid: string;
+  content: string;
+  id: number;
+  timeStamp: {
+    seconds: number;
+    nanoseconds: number;
+  };
+  categoryID: string;
+  imageURL: string;
+}
 
-// npm 
-
-// type totolPost={
-//        item :postType[];
-//       //  loading : boolean
-// }
+type totolPost={
+       item :postType[];
+       loading : boolean
+}
 
 export default async function AllPosts(){
     
@@ -99,7 +89,7 @@ export default async function AllPosts(){
 }
 
 
-export const  PostCards=({item ,loading}:any)=>{
+export const  PostCards=({item ,loading}:totolPost[])=>{
              console.log("all post item=>",item , "loading",loading);
              
     return  <div key={item.id} className=" max-w-sm object-cover hover:scale-95 transition-all mb-2 mx-2 bg-white border border-gray-200 rounded-lg shadow ">
